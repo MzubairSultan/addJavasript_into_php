@@ -1,40 +1,27 @@
-<h1> hi this is Modue 2 view program</h1>
+{{-- <h3>important topic @include <br>@section <br>@extend <br>@yield</h3> --}}
 
-{{-- Blade template start here --}}
-{{-- 1) Agar my kuch b echo krwana chata ho php k andr to my isko asy liku ga --}}
-{{5+2}} 
-<br><br>      
-{{-- 2) Agr my koi message print krwant chata ho blade my php ki help sy --}}
-{{"hello word"}}
+{{-- ager hum chaty hy aik view ko dosry view k ander include krna to is ky liye hum @include function ka use kry gy  --}}
 
-{{-- 3) Agr hum blade temple my php k andr html ka code likhna chaty hy  --}}
-<br><br>      
-{!!"<h1> yahoo world</h1>"!!}
-
-{!!"<script> alert('yahoo yahoo')</script>"!!}
-
-<br><br>
-{{-- 4)varibale ko bna kr use krny ka tariqa --}}
+{{-- Ager hum chaty hy single value ki bjye hum array lay  --}}
 @php
-$user ="Muhammad zubair sultan";
-$myarr =["Muhammad zubair","Muhammad sultan","Muhammad umar"]
+// $fruites = ["Banana","Apple","Orange","Stobery"];  
+$fruites =[]; 
 @endphp
-{{$user}};
+{{-- @include('Pages.Header',['fruitnames' => $fruites]) --}}
 
-{{-- 5 Ager humny use krni ho array in foreach loop my  --}}
-<ul>
-{{-- agr my loop varibale use krna chata ho jo k foreach loop k stah use hoty hy to wo kesy hum use kr sakty hy --}}
-@foreach ($myarr as $nam )
-    <li>{{$loop->index}}-{{$nam}}</li>
-@endforeach
+{{-- Conditional base inclue file --}}
 
-</ul>
+{{-- @includeWhen(true,'Pages.Header',['fruitnames' => $fruites]) --}}
+{{-- ager iski value true hogi to ya include nahi kry ga/ false hogi to kry ga --}}
+@includeUnless(false,'Pages.Header',['fruitnames' => $fruites])
 
-{{-- 6) kisi b chiz ko as its print krny k liye @use krty hy  --}}
+<h1>Home view </h1>
+
+@include('Pages.footer')
 
 
-@{{user}} <br><br>
-{{"Please input the value"}}<br>
 
-<a href="/part2">Blade Templete advance topic</a>
+
+
+
 
